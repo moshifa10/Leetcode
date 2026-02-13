@@ -10,3 +10,35 @@ If two words score the same, return the word that appears earliest in the origin
 
 All letters will be lowercase and all inputs will be valid.
 '''
+
+
+
+def high(x):
+    # Code here
+    import string
+    x = x.split()
+
+    # words_pos = {
+    # "a": 1, "b": 2, "c": 3, "d": 4, "e": 5,
+    # "f": 6, "g": 7, "h": 8, "i": 9, "j": 10,
+    # "k": 11, "l": 12, "m": 13, "n": 14, "o": 15,
+    # "p": 16, "q": 17, "r": 18, "s": 19, "t": 20,
+    # "u": 21, "v": 22, "w": 23, "x": 24, "y": 25,
+    # "z": 26
+    # }
+    words_pos = {letter: i+1 for i, letter in enumerate(string.ascii_lowercase)}
+
+    count = []
+    for i in x:
+        temp = 0
+        for j in i:
+            temp += words_pos[j]
+
+        count.append((temp, i))
+
+    return max(count, key=lambda x: x[0])[1]
+
+
+print(high('man i need a taxi up to ubud'))
+print(high('what time are we climbing up the volcano'))
+print(high("b aa"))
