@@ -22,4 +22,64 @@ Example scoring
 
 
 def score(dice):
-    pass # your code here
+    points = {
+        "111": 1000,
+        "666": 600,
+        "555": 500,
+        "444": 400,
+        "333": 300,
+        "222": 200,
+        "1": 100,
+        "5": 50
+    }
+    # user_points = 0
+    check = set()
+    check1 = []
+    y = None
+    for i in dice:
+        x = dice.count(i)
+        # z = str(i) * x
+        if x > 3:
+            y = ((x - 3), i)
+            check.add(str(i)*3)
+
+            
+
+        elif x == 2:
+            check1.append(str(i))
+
+        else:
+            check.add(str(i)*x)
+
+    if y != None:
+        if y[0] == 2:
+            check1.append(str(i))
+            check1.append(str(i))
+        else:
+            check.add(str(y[-1])*y[0])
+
+    turn = list(check)
+    # print(turn)
+
+    got = [points[i] for i in turn if i in points]
+    got_list = [points[i] for i in check1 if i in points]
+    got.extend(got_list)
+    # print(sum(got))
+    return sum(got)
+
+
+
+
+# score( [5, 1, 3, 4, 1] ),  250
+'''
+        test.assert_equals( score( [1, 1, 1, 3, 1] ), 1100)
+        test.assert_equals( score( [2, 3, 4, 6, 2] ),    0)
+        test.assert_equals( score( [4, 4, 4, 3, 3] ),  400)
+        test.assert_equals( score( [2, 4, 4, 5, 4] ),  450)
+'''
+# print(score([5, 1, 3, 4, 1]))
+# print(score([1, 1, 1, 3, 1]))
+# print(score([2, 3, 4, 6, 2]))
+# print(score([4, 4, 4, 3, 3]))
+# print(score([2, 4, 4, 5, 4]))
+print(score([1, 1, 1, 1, 1]))
