@@ -1,15 +1,38 @@
 class VigenereCipher(object):
-    def __init__(self, key, alphabet):
+    def __init__(self, key: str, alphabet: str):
         self.key = key
-        self.plain_text = alphabet
-        self.alphabets = "abcdefghijklmnopqurstuvwxyz"
-        print(len(self.alphabets))
+        self.alphabet = alphabet
+        self.current_pos = 0
     
     def encode(self, text):
-        pass
+        # Go to key using current pos, Get the index from alpha and go back to the current pos of the letter and move it forward
+        word: list = []
+        for each_word in text:
+            # print(each_word)
+            # Now get the current index from alpha
+            if each_word.isalpha():
+                current_index = self.alphabet.index(self.key[self.current_pos])
+                self.current_pos += 1
+
+                # Now get index of the word from the text and shift forward
+                word_index = self.alphabet.index(each_word)
+                total = word_index + current_index
+                shift = abs((total - (len(self.alphabet)-1)) - 1)   
+                word.append(self.alphabet[shift])
+
+            else:
+                word.append(each_word)
+        print(''.join(word))
+        # print(word)
+
+
+
     
     def decode(self, text):
         pass
 
 
-s = VigenereCipher(key=2,alphabet="da" )
+s = VigenereCipher(key="oculorhinolaryngology",alphabet="abcdefghijklmnopqrstuvwxyz" )
+
+# ovnlqbpvt hznzeuz
+s.encode("waffles")
