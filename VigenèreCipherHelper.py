@@ -17,14 +17,17 @@ class VigenereCipher(object):
                 # Now get index of the word from the text and shift forward
                 word_index = self.alphabet.index(each_word)
                 total = word_index + current_index
-                shift = abs((total - (len(self.alphabet)-1)) - 1)   
-                word.append(self.alphabet[shift])
+                if total > 25 :
+                    shift = abs((total - (len(self.alphabet)-1)) - 1)   
+                    word.append(self.alphabet[shift])
 
+                else:word.append(self.alphabet[total])
+
+                self.current_pos += 1
             else:
                 word.append(each_word)
 
 
-            self.current_pos += 1
         print(''.join(word))
         # print(word)
 
@@ -40,4 +43,4 @@ class VigenereCipher(object):
 s = VigenereCipher(key="oculorhinolaryngology",alphabet="abcdefghijklmnopqrstuvwxyz" )
 
 # ovnlqbpvt hznzeuz
-s.encode("waffles") # laxxhsj
+s.encode("attacking tonight") # laxxhsj
