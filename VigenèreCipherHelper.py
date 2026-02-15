@@ -12,7 +12,7 @@ class VigenereCipher(object):
             # Now get the current index from alpha
             if each_word.isalpha():
                 current_index = self.alphabet.index(self.key[self.current_pos])
-                self.current_pos += 1
+                
 
                 # Now get index of the word from the text and shift forward
                 word_index = self.alphabet.index(each_word)
@@ -22,8 +22,13 @@ class VigenereCipher(object):
 
             else:
                 word.append(each_word)
+
+
+            self.current_pos += 1
         print(''.join(word))
         # print(word)
+
+
 
 
 
@@ -35,4 +40,4 @@ class VigenereCipher(object):
 s = VigenereCipher(key="oculorhinolaryngology",alphabet="abcdefghijklmnopqrstuvwxyz" )
 
 # ovnlqbpvt hznzeuz
-s.encode("waffles")
+s.encode("waffles") # laxxhsj
