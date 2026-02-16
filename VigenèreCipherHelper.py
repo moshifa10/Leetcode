@@ -1,3 +1,4 @@
+
 class VigenereCipher(object):
     def __init__(self, key: str, alphabet: str):
         self.key = key
@@ -28,19 +29,17 @@ class VigenereCipher(object):
                 word.append(each_word)
 
 
-        print(''.join(word))
+        return ''.join(word)
         # print(word)
 
-
-
-
-
-    
     def decode(self, text):
         pass
 
 
-s = VigenereCipher(key="oculorhinolaryngology",alphabet="abcdefghijklmnopqrstuvwxyz" )
+s = VigenereCipher(key="password",alphabet="abcdefghijklmnopqrstuvwxyz" )
+abc = "abcdefghijklmnopqrstuvwxyz"
+key = "password"
+
 
 # ovnlqbpvt hznzeuz
-s.encode("attacking tonight") # laxxhsj
+s.encode("codewars") # rovwsoiv
