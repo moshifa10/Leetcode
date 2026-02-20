@@ -58,12 +58,12 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     s = [(i,m[i]) for i in m]
     # print(s)
     z = []
-    for i,l in z:
+    for i,l in s:
         if l not in z:
             z.append(l)
     k = sorted(z, reverse=True)
 
-    print(k, "")
+    print(z)
     if len(k) < 2:
         dt = {
          "SecondHighestSalary": [None]
