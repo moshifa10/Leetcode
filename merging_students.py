@@ -213,4 +213,16 @@ Use / instead of \\ for paths when using pd.read_csv(directory)
 Ad
 Would You Pass the Google SQL'''
 
+import pandas as pd
+def export_csv_with_name_and_grade(student_name: str, grade: str):
 
+    students = pd.read_csv(filepath_or_buffer="students.csv")
+    grades = pd.read_csv(filepath_or_buffer="grades.csv")
+
+    for row, i in students.iterrows():
+
+
+
+
+
+export_csv_with_name_and_grade('Bob', 'A')
