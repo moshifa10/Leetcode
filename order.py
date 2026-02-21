@@ -14,7 +14,7 @@ def order(sentence):
         9: None
     }
     sentence = sentence.split()
-    for i in s:
+    for i in s: 
         for k in sentence:
             if str(i) in k:
                 s[i] = k
