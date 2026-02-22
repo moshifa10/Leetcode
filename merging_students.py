@@ -218,8 +218,29 @@ def export_csv_with_name_and_grade(student_name: str, grade: str):
 
     students = pd.read_csv(filepath_or_buffer="students.csv")
     grades = pd.read_csv(filepath_or_buffer="grades.csv")
-
+    id_name = None
+    class_ = None
     for row, i in students.iterrows():
+        # print(i["Name"].str.lower())
+        name = str(i).replace("Name", "").replace("Student_ID", "")
+
+        print((name))
+        if name == student_name:
+            id_name = i.Student_ID
+
+            for r, j in grades.iterrows():
+                if int(j.ID.astype(int)) == id_name and grade == j.Grade.str:
+                    class_ = j.Class
+
+
+    data = {
+        "Student_ID": [id_name],
+        "Class": [class_]
+    }
+                    
+    df = pd.DataFrame(data=data)
+
+    df.to_csv(path_or_buf="output.csv", index_label=False)
 
 
 
