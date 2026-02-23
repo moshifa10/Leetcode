@@ -222,15 +222,16 @@ def export_csv_with_name_and_grade(student_name: str, grade: str):
     class_ = None
     for row, i in students.iterrows():
         # print(i["Name"].str.lower())
-        name = str(i).replace("Name", "").replace("Student_ID", "")
+        # name = str(i).replace("Name", "").replace("Student_ID", "")
 
-        print((name))
-        if name == student_name:
-            id_name = i.Student_ID
+        # print((name))
+        print(type(i))
+        if str(i.Name.astype(str)) == student_name:
+            id_name = int(i.Student_ID.astype(int))
 
             for r, j in grades.iterrows():
-                if int(j.ID.astype(int)) == id_name and grade == j.Grade.str:
-                    class_ = j.Class
+                if int(j.ID.astype(int)) == id_name and grade == str(j.Grade.astype(str)):
+                    class_ = str(j.Class.astype(str))
 
 
     data = {
