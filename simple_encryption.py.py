@@ -9,10 +9,13 @@
 
 
 def decrypt(encrypted_text, n):
-    pass
+    if n <= 0:
+        return encrypted_text
 
 
 def encrypt(text, n):
+    if n <= 0:
+        return text
     c = 0
     while c != n:
         even = [text[i] for i in range(len(text)) if i %2==0]
@@ -26,5 +29,5 @@ def encrypt(text, n):
 
 
 
-print(encrypt("012345", 1))
+print(encrypt("012345", 2))
 
