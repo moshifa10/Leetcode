@@ -48,4 +48,6 @@ def frame_clockwise(width, height):
         for row in i:
             print(row, end=" ")
         print()
-frame_clockwise(7,9)
+
+    return grid
+print(frame_clockwise(7,9))
