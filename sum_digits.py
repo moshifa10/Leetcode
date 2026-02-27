@@ -15,3 +15,5 @@ def digital_root(n):
     print(n)
 
 digital_root(942)
+
+
