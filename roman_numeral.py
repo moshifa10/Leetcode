@@ -51,4 +51,46 @@ class RomanNumerals:
 
     @staticmethod
     def from_roman(roman_num : str) -> int:
-        return 0
+        table = {
+            "M": 1000,
+            "CM": 900,
+            "D": 500,
+            "CD": 400,
+            "C": 100,
+            "XC": 90,
+            "L": 50,
+            "XL": 40,
+            "X": 10,
+            "IX": 9,
+            "V": 5,
+            "IV": 4,
+            "I": 1
+        }
+        second = False
+        store = 0
+        num = 0
+        for i in range(len(roman_num)):
+            if second and store == 0:
+                store = 1
+                continue
+            if store == 1:
+                second = False
+                store = 0
+            
+            if roman_num[i:i+2] in table:
+                second = True
+                num+= table[roman_num[i:i+2]]
+            else:
+                num += table[roman_num[i]]
+
+        print(num)
+
+
+x = RomanNumerals()
+x.from_roman("MDCLXVI")
+
+'''1666 -> "MDCLXVI"
+86 -> "LXXXVI"
+1 -> "I" 
+'''
+
