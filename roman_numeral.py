@@ -47,7 +47,30 @@ Help
 class RomanNumerals:
     @staticmethod
     def to_roman(val : int) -> str:
-        return ''
+        table = {
+            1000: "M",
+            900: "CM",
+            500: "D",
+            400: "CD",
+            100: "C",
+            90: "XC",
+            50: "L",
+            40: "XL",
+            10: "X",
+            9: "IX",
+            5: "V",
+            4: "IV",
+            1: "I"
+        }
+        s = []
+        for i in table:
+            div, mod =  divmod(val, i)
+            if div > 0:
+                s.append(table[i]*div)
+                val = mod
+
+            if val == 0:
+                return "".join(s)
 
     @staticmethod
     def from_roman(roman_num : str) -> int:
@@ -83,11 +106,12 @@ class RomanNumerals:
             else:
                 num += table[roman_num[i]]
 
-        print(num)
+        return num
 
 
 x = RomanNumerals()
-x.from_roman("MDCLXVI")
+# x.from_roman("MDCLXVI")
+print(x.to_roman(2008))
 
 '''1666 -> "MDCLXVI"
 86 -> "LXXXVI"
