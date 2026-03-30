@@ -22,4 +22,4 @@ string2 = "aacccbbcc"
 test.assert_equals(added_char("aabbcc","aacccbbcc"),'c')
 test.assert_equals(added_char("abcde","2db2a2ec"),'2')'''
 
-print(added_char("hello","checlclo"))
+print(added_char("abcde","2db2a2ec"))
