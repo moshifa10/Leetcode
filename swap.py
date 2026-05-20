@@ -15,7 +15,7 @@
 
 def swap(s1: str, s2: str) -> bool:
     if s1 == s2:return True
-    if len(s1) != s2: return False
+    if len(s1) != len(s2): return False
     for i in range(len(s2)):
         for j in range(i+1,len(s2)):
             save =  list(s2)
@@ -26,8 +26,9 @@ def swap(s1: str, s2: str) -> bool:
                 return True
             
     return False
+ 
 
-print(swap("bank", "kanb"))
+print(swap("ab", "ba"))
 
             
 

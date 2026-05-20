@@ -13,6 +13,7 @@ All letters will be lowercase and all inputs will be valid.
 
 
 
+
 def high(x):
     # Code here
     import string
